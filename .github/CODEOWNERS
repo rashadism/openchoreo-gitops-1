@@ -1,0 +1,7 @@
+# OpenChoreo platform-shared CODEOWNERS
+# Replace the placeholder team handle with the platform team's GitHub team.
+#
+# Cluster-scoped resources affect every namespace — require platform-team review.
+
+/platform-shared/                     @rashadism/platform-team
+/namespaces/*/platform/               @rashadism/platform-team

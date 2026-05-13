@@ -1,0 +1,33 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: ClusterAuthzRole
+metadata:
+  annotations:
+    meta.helm.sh/release-name: openchoreo-control-plane
+    meta.helm.sh/release-namespace: openchoreo-control-plane
+  labels:
+    app.kubernetes.io/instance: openchoreo-control-plane
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: openchoreo-control-plane
+    app.kubernetes.io/part-of: openchoreo
+    app.kubernetes.io/version: latest-dev
+    helm.sh/chart: openchoreo-control-plane-0.0.0-latest-dev
+    openchoreo.io/bootstrap: "true"
+    openchoreo.io/system: "true"
+  name: rca-agent
+spec:
+  actions:
+    - component:view
+    - project:view
+    - namespace:view
+    - componentrelease:view
+    - releasebinding:view
+    - workflowrun:view
+    - environment:view
+    - workload:view
+    - trait:view
+    - logs:view
+    - metrics:view
+    - alerts:view
+    - incidents:view
+    - incidents:update
+    - traces:view

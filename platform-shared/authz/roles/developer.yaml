@@ -1,0 +1,71 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: ClusterAuthzRole
+metadata:
+  annotations:
+    meta.helm.sh/release-name: openchoreo-control-plane
+    meta.helm.sh/release-namespace: openchoreo-control-plane
+  labels:
+    app.kubernetes.io/instance: openchoreo-control-plane
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: openchoreo-control-plane
+    app.kubernetes.io/part-of: openchoreo
+    app.kubernetes.io/version: latest-dev
+    helm.sh/chart: openchoreo-control-plane-0.0.0-latest-dev
+    openchoreo.io/bootstrap: "true"
+  name: developer
+spec:
+  actions:
+    - clusterdataplane:view
+    - clusterworkflowplane:view
+    - clusterobservabilityplane:view
+    - clustercomponenttype:view
+    - clusterresourcetype:view
+    - clustertrait:view
+    - clusterworkflow:view
+    - namespace:view
+    - environment:view
+    - deploymentpipeline:view
+    - dataplane:view
+    - workflowplane:view
+    - observabilityplane:view
+    - componenttype:view
+    - resourcetype:view
+    - trait:view
+    - workflow:view
+    - project:view
+    - component:view
+    - component:create
+    - component:update
+    - component:delete
+    - componentrelease:view
+    - componentrelease:create
+    - releasebinding:view
+    - releasebinding:create
+    - releasebinding:update
+    - resource:view
+    - resource:create
+    - resource:update
+    - resource:delete
+    - resourcerelease:view
+    - resourcerelease:create
+    - resourcereleasebinding:view
+    - resourcereleasebinding:create
+    - resourcereleasebinding:update
+    - resourcereleasebinding:delete
+    - workflowrun:view
+    - workflowrun:create
+    - workflowrun:delete
+    - secretreference:view
+    - secretreference:create
+    - secretreference:update
+    - secretreference:delete
+    - workload:view
+    - workload:create
+    - workload:update
+    - workload:delete
+    - logs:view
+    - metrics:view
+    - traces:view
+    - alerts:view
+    - rcareport:view
+    - finopsreport:view

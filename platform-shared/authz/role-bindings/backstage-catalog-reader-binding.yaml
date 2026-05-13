@@ -1,0 +1,26 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: ClusterAuthzRoleBinding
+metadata:
+  annotations:
+    meta.helm.sh/release-name: openchoreo-control-plane
+    meta.helm.sh/release-namespace: openchoreo-control-plane
+  labels:
+    app.kubernetes.io/instance: openchoreo-control-plane
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: openchoreo-control-plane
+    app.kubernetes.io/part-of: openchoreo
+    app.kubernetes.io/version: latest-dev
+    helm.sh/chart: openchoreo-control-plane-0.0.0-latest-dev
+    openchoreo.io/bootstrap: "true"
+    openchoreo.io/system: "true"
+  name: backstage-catalog-reader-binding
+spec:
+  effect: allow
+  entitlement:
+    claim: sub
+    value: openchoreo-backstage-client
+  roleMappings:
+    - roleRef:
+        kind: ClusterAuthzRole
+        name: backstage-catalog-reader
+      scope: {}
