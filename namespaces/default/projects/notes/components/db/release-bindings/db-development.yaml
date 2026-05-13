@@ -1,0 +1,11 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: ReleaseBinding
+metadata:
+  name: db-development
+  namespace: default
+spec:
+  environment: development
+  owner:
+    componentName: db
+    projectName: notes
+  releaseName: db-20260514-1

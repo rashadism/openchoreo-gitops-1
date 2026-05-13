@@ -1,0 +1,11 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: Project
+metadata:
+  name: notes
+  namespace: default
+  annotations:
+    openchoreo.dev/display-name: Notes
+    openchoreo.dev/description: 3-tier Notes demo (Postgres + Go API + Go HTML server) — source-build via docker-gitops-release
+spec:
+  deploymentPipelineRef:
+    name: default

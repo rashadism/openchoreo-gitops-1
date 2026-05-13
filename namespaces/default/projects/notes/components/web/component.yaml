@@ -1,0 +1,29 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: Component
+metadata:
+  name: web
+  namespace: default
+spec:
+  owner:
+    projectName: notes
+  componentType:
+    name: deployment/web-application
+    kind: ClusterComponentType
+  workflow:
+    kind: ClusterWorkflow
+    name: docker-gitops-release
+    parameters:
+      componentName: web
+      projectName: notes
+      repository:
+        url: https://github.com/rashadism/notes-app
+        revision:
+          branch: main
+          commit: 4d580bda0e7dc4f7ca9a3d3f03a6d2797e92388a
+        appPath: /web
+      docker:
+        context: /web
+        filePath: /web/Dockerfile
+      workloadDescriptorPath: workload.yaml
+  autoBuild: false
+  autoDeploy: true
