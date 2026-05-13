@@ -4,8 +4,29 @@ metadata:
   name: api-workload
   namespace: default
 spec:
-  container:
-    image: host.k3d.internal:10082/notes-api-image:v1-4d580bda
   owner:
     componentName: api
     projectName: notes
+  container:
+    image: host.k3d.internal:10082/notes-api-image:v1-4d580bda
+    env:
+      - key: PORT
+        value: "8080"
+      - key: DB_USER
+        value: notes
+      - key: DB_PASSWORD
+        value: notes
+      - key: DB_NAME
+        value: notes
+  endpoints:
+    http:
+      type: HTTP
+      port: 8080
+  dependencies:
+    endpoints:
+      - component: db
+        name: tcp
+        visibility: project
+        envBindings:
+          host: DB_HOST
+          port: DB_PORT

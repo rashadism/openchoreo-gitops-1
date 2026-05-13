@@ -238,4 +238,25 @@ spec:
     projectName: notes
   workload:
     container:
+      env:
+      - key: PORT
+        value: "8080"
+      - key: DB_USER
+        value: notes
+      - key: DB_PASSWORD
+        value: notes
+      - key: DB_NAME
+        value: notes
       image: host.k3d.internal:10082/notes-api-image:v1-4d580bda
+    dependencies:
+      endpoints:
+      - component: db
+        envBindings:
+          host: DB_HOST
+          port: DB_PORT
+        name: tcp
+        visibility: project
+    endpoints:
+      http:
+        port: 8080
+        type: HTTP
