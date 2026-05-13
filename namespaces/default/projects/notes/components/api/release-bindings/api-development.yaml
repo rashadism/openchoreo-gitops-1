@@ -1,0 +1,11 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: ReleaseBinding
+metadata:
+  name: api-development
+  namespace: default
+spec:
+  environment: development
+  owner:
+    componentName: api
+    projectName: notes
+  releaseName: api-4d580bda
