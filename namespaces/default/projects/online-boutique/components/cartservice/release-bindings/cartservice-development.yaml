@@ -1,0 +1,11 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: ReleaseBinding
+metadata:
+  name: cartservice-development
+  namespace: default
+spec:
+  environment: development
+  owner:
+    componentName: cartservice
+    projectName: online-boutique
+  releaseName: cartservice-20260514-1

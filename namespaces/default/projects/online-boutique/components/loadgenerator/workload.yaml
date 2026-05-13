@@ -1,0 +1,18 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: Workload
+metadata:
+  name: loadgenerator
+  namespace: default
+spec:
+  owner:
+    componentName: loadgenerator
+    projectName: online-boutique
+  container:
+    image: us-central1-docker.pkg.dev/google-samples/microservices-demo/loadgenerator:v0.10.5
+    env:
+      - key: USERS
+        value: "10"
+      - key: RATE
+        value: "1"
+      - key: FRONTEND_ADDR
+        value: "frontend:8080"

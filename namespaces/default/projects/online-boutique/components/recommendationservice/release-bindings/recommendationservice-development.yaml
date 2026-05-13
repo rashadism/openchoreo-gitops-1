@@ -1,0 +1,11 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: ReleaseBinding
+metadata:
+  name: recommendationservice-development
+  namespace: default
+spec:
+  environment: development
+  owner:
+    componentName: recommendationservice
+    projectName: online-boutique
+  releaseName: recommendationservice-20260514-1

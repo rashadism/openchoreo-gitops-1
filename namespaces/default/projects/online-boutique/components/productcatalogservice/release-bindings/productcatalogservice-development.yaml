@@ -1,0 +1,11 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: ReleaseBinding
+metadata:
+  name: productcatalogservice-development
+  namespace: default
+spec:
+  environment: development
+  owner:
+    componentName: productcatalogservice
+    projectName: online-boutique
+  releaseName: productcatalogservice-20260514-1

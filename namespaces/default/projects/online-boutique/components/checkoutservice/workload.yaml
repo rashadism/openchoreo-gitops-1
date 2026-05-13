@@ -1,0 +1,50 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: Workload
+metadata:
+  name: checkoutservice
+  namespace: default
+spec:
+  owner:
+    componentName: checkoutservice
+    projectName: online-boutique
+  container:
+    image: us-central1-docker.pkg.dev/google-samples/microservices-demo/checkoutservice:v0.10.5
+    env:
+      - key: PORT
+        value: "5050"
+  endpoints:
+    grpc:
+      type: TCP
+      port: 5050
+  dependencies:
+    endpoints:
+      - component: productcatalogservice
+        name: grpc
+        visibility: project
+        envBindings:
+          address: PRODUCT_CATALOG_SERVICE_ADDR
+      - component: shippingservice
+        name: grpc
+        visibility: project
+        envBindings:
+          address: SHIPPING_SERVICE_ADDR
+      - component: paymentservice
+        name: grpc
+        visibility: project
+        envBindings:
+          address: PAYMENT_SERVICE_ADDR
+      - component: emailservice
+        name: grpc
+        visibility: project
+        envBindings:
+          address: EMAIL_SERVICE_ADDR
+      - component: currencyservice
+        name: grpc
+        visibility: project
+        envBindings:
+          address: CURRENCY_SERVICE_ADDR
+      - component: cartservice
+        name: grpc
+        visibility: project
+        envBindings:
+          address: CART_SERVICE_ADDR

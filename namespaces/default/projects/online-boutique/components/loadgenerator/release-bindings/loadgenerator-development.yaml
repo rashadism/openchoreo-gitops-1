@@ -1,0 +1,11 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: ReleaseBinding
+metadata:
+  name: loadgenerator-development
+  namespace: default
+spec:
+  environment: development
+  owner:
+    componentName: loadgenerator
+    projectName: online-boutique
+  releaseName: loadgenerator-20260514-1

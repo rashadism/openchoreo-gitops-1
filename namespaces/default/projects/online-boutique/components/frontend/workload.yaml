@@ -1,0 +1,60 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: Workload
+metadata:
+  name: frontend
+  namespace: default
+spec:
+  owner:
+    componentName: frontend
+    projectName: online-boutique
+  container:
+    image: us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.10.5
+    env:
+      - key: PORT
+        value: "8080"
+      - key: ENABLE_PROFILER
+        value: "0"
+      - key: SHOPPING_ASSISTANT_SERVICE_ADDR
+        value: "shoppingassistantservice:80"
+  endpoints:
+    http:
+      type: HTTP
+      port: 8080
+      visibility: [external]
+  dependencies:
+    endpoints:
+      - component: productcatalogservice
+        name: grpc
+        visibility: project
+        envBindings:
+          address: PRODUCT_CATALOG_SERVICE_ADDR
+      - component: currencyservice
+        name: grpc
+        visibility: project
+        envBindings:
+          address: CURRENCY_SERVICE_ADDR
+      - component: cartservice
+        name: grpc
+        visibility: project
+        envBindings:
+          address: CART_SERVICE_ADDR
+      - component: recommendationservice
+        name: grpc
+        visibility: project
+        envBindings:
+          address: RECOMMENDATION_SERVICE_ADDR
+      - component: shippingservice
+        name: grpc
+        visibility: project
+        envBindings:
+          address: SHIPPING_SERVICE_ADDR
+      - component: checkoutservice
+        name: grpc
+        visibility: project
+        envBindings:
+          address: CHECKOUT_SERVICE_ADDR
+      - component: adservice
+        name: grpc
+        visibility: project
+        envBindings:
+          address: AD_SERVICE_ADDR
