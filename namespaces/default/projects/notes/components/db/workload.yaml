@@ -1,0 +1,24 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: Workload
+metadata:
+  name: db
+  namespace: default
+spec:
+  owner:
+    componentName: db
+    projectName: notes
+  container:
+    image: postgres:16-alpine
+    env:
+      - key: POSTGRES_USER
+        value: notes
+      - key: POSTGRES_PASSWORD
+        value: notes
+      - key: POSTGRES_DB
+        value: notes
+      - key: PGDATA
+        value: /tmp/pgdata
+  endpoints:
+    tcp:
+      type: TCP
+      port: 5432
