@@ -218,4 +218,20 @@ spec:
     projectName: notes
   workload:
     container:
+      env:
+      - key: PORT
+        value: "8080"
       image: host.k3d.internal:10082/notes-web-image:v1-4d580bda
+    dependencies:
+      endpoints:
+      - component: api
+        envBindings:
+          address: API_URL
+        name: http
+        visibility: project
+    endpoints:
+      http:
+        port: 8080
+        type: HTTP
+        visibility:
+        - external
