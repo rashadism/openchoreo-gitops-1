@@ -1,0 +1,11 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: Workload
+metadata:
+  name: api-workload
+  namespace: default
+spec:
+  container:
+    image: host.k3d.internal:10082/notes-api-image:v1-4d580bda
+  owner:
+    componentName: api
+    projectName: notes
