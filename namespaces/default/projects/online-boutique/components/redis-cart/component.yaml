@@ -1,0 +1,11 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: Component
+metadata:
+  name: redis-cart
+  namespace: default
+spec:
+  owner:
+    projectName: online-boutique
+  componentType:
+    name: deployment/service
+    kind: ClusterComponentType

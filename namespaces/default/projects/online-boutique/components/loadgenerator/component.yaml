@@ -1,0 +1,11 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: Component
+metadata:
+  name: loadgenerator
+  namespace: default
+spec:
+  owner:
+    projectName: online-boutique
+  componentType:
+    name: deployment/worker
+    kind: ClusterComponentType

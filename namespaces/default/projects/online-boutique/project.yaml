@@ -1,0 +1,11 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: Project
+metadata:
+  name: online-boutique
+  namespace: default
+  annotations:
+    openchoreo.dev/display-name: Online Boutique
+    openchoreo.dev/description: GoogleCloudPlatform/microservices-demo (BYO images, v0.10.5)
+spec:
+  deploymentPipelineRef:
+    name: default

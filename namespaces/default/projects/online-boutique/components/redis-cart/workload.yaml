@@ -1,0 +1,15 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: Workload
+metadata:
+  name: redis-cart
+  namespace: default
+spec:
+  owner:
+    componentName: redis-cart
+    projectName: online-boutique
+  container:
+    image: redis:alpine
+  endpoints:
+    tcp:
+      type: TCP
+      port: 6379

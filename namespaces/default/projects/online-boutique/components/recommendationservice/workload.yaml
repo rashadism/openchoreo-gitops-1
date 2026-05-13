@@ -1,0 +1,27 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: Workload
+metadata:
+  name: recommendationservice
+  namespace: default
+spec:
+  owner:
+    componentName: recommendationservice
+    projectName: online-boutique
+  container:
+    image: us-central1-docker.pkg.dev/google-samples/microservices-demo/recommendationservice:v0.10.5
+    env:
+      - key: PORT
+        value: "8080"
+      - key: DISABLE_PROFILER
+        value: "1"
+  endpoints:
+    grpc:
+      type: TCP
+      port: 8080
+  dependencies:
+    endpoints:
+      - component: productcatalogservice
+        name: grpc
+        visibility: project
+        envBindings:
+          address: PRODUCT_CATALOG_SERVICE_ADDR

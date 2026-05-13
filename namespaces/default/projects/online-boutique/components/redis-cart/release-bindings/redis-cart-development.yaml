@@ -1,0 +1,11 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: ReleaseBinding
+metadata:
+  name: redis-cart-development
+  namespace: default
+spec:
+  environment: development
+  owner:
+    componentName: redis-cart
+    projectName: online-boutique
+  releaseName: redis-cart-20260514-1

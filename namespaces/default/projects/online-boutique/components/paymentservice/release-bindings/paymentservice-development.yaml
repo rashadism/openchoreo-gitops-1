@@ -1,0 +1,11 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: ReleaseBinding
+metadata:
+  name: paymentservice-development
+  namespace: default
+spec:
+  environment: development
+  owner:
+    componentName: paymentservice
+    projectName: online-boutique
+  releaseName: paymentservice-20260514-1

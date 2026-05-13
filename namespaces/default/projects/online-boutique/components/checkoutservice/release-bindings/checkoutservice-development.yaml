@@ -1,0 +1,11 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: ReleaseBinding
+metadata:
+  name: checkoutservice-development
+  namespace: default
+spec:
+  environment: development
+  owner:
+    componentName: checkoutservice
+    projectName: online-boutique
+  releaseName: checkoutservice-20260514-1

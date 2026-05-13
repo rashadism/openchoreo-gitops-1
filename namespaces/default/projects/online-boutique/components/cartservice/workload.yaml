@@ -1,0 +1,22 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: Workload
+metadata:
+  name: cartservice
+  namespace: default
+spec:
+  owner:
+    componentName: cartservice
+    projectName: online-boutique
+  container:
+    image: us-central1-docker.pkg.dev/google-samples/microservices-demo/cartservice:v0.10.5
+  endpoints:
+    grpc:
+      type: TCP
+      port: 7070
+  dependencies:
+    endpoints:
+      - component: redis-cart
+        name: tcp
+        visibility: project
+        envBindings:
+          address: REDIS_ADDR
